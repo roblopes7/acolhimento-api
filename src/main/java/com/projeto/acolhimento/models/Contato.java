@@ -1,6 +1,5 @@
 package com.projeto.acolhimento.models;
 
-import com.projeto.acolhimento.models.dto.ContatoDto;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
@@ -9,7 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "Contato")
-public class Contato extends RepresentationModel<ContatoDto> implements Serializable{
+public class Contato extends RepresentationModel<Contato> implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
