@@ -24,6 +24,16 @@ public class Contato extends RepresentationModel<Contato> implements Serializabl
     @Column(name = "email")
     private String email;
 
+    public Contato() {
+    }
+
+    public Contato(UUID id, String telefone, String responsavel, String email) {
+        this.id = id;
+        this.telefone = telefone;
+        this.responsavel = responsavel;
+        this.email = email;
+    }
+
     public UUID getId() {
         return id;
     }
@@ -44,11 +54,11 @@ public class Contato extends RepresentationModel<Contato> implements Serializabl
         this.responsavel = responsavel;
     }
 
-    public String getEmal() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmal(String emal) {
+    public void setEmail(String emal) {
         this.email = emal;
     }
 
