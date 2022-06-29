@@ -1,5 +1,6 @@
 package com.projeto.acolhimento.models.dto;
 
+import com.projeto.acolhimento.models.Endereco;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.validation.constraints.NotEmpty;
@@ -17,17 +18,19 @@ public class InstituicaoDto extends RepresentationModel<InstituicaoDto> implemen
     private AtuacaoDto atuacao;
     private Integer capacidade;
     private List<ContatoDto> contato = new ArrayList<>();
+    private Endereco endereco;
 
     public InstituicaoDto() {
     }
 
-    public InstituicaoDto(UUID id, String nome, String documento, AtuacaoDto atuacao, Integer capacidade, List<ContatoDto> contato) {
+    public InstituicaoDto(UUID id, String nome, String documento, AtuacaoDto atuacao, Integer capacidade, List<ContatoDto> contato, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.documento = documento;
         this.atuacao = atuacao;
         this.capacidade = capacidade;
         this.contato = contato;
+        this.endereco = endereco;
     }
 
     public UUID getId() {
@@ -76,6 +79,14 @@ public class InstituicaoDto extends RepresentationModel<InstituicaoDto> implemen
 
     public void setContato(List<ContatoDto> contato) {
         this.contato = contato;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override

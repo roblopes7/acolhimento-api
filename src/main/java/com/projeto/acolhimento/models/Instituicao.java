@@ -36,16 +36,22 @@ public class Instituicao  extends RepresentationModel<Instituicao> implements Se
             inverseJoinColumns={@JoinColumn(name="uid_contato")})
     private List<Contato> contato = new ArrayList<>();
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "uid_endereco")
+    private Endereco endereco;
+
+
     public Instituicao() {
     }
 
-    public Instituicao(UUID id, String nome, String documento, Atuacao atuacao, Integer capacidade, List<Contato> contato) {
+    public Instituicao(UUID id, String nome, String documento, Atuacao atuacao, Integer capacidade, List<Contato> contato, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.documento = documento;
         this.atuacao = atuacao;
         this.capacidade = capacidade;
         this.contato = contato;
+        this.endereco = endereco;
     }
 
     public UUID getId() {
@@ -94,6 +100,14 @@ public class Instituicao  extends RepresentationModel<Instituicao> implements Se
 
     public void setCapacidade(Integer capacidade) {
         this.capacidade = capacidade;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override
